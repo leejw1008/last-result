@@ -82,7 +82,7 @@
             prediction.sort((a, b) => b.probability - a.probability);
             const top = prediction[0];
 
-            if (top.probability === 1.0 && top.className !== lastSpoken) {
+            if (top.probability > 0.999 && top.className !== lastSpoken) {
                 speak(top.className + "입니다");
                 lastSpoken = top.className;
             }
